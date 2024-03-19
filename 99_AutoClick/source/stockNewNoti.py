@@ -42,7 +42,7 @@ def createDataPage1():
     driver = webdriver.Chrome(service=service, options=options)
 
     driver.get(url)
-    time.sleep(2)
+    time.sleep(3)
     driver.find_element(By.XPATH, "//img[@src='https://sbisec.akamaized.net/sbisec/images/base02/b_koushin.gif']") 
     #マーケット 国内ニュース欄だけが取得対象とする
     targetDiv = driver.find_elements(By.CLASS_NAME, "md-box-list-03")
@@ -62,7 +62,7 @@ def createDataPage2():
     driver = webdriver.Chrome(service=service, options=options)
 
     driver.get(url)
-    time.sleep(2)
+    time.sleep(3)
     #マーケット 国内ニュース欄だけが取得対象とする
     targetDiv = driver.find_elements(By.CLASS_NAME, "md-box-list-03")
     for targetListLink in targetDiv:
