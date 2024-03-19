@@ -28,7 +28,7 @@ dt_now_text = dt_now.strftime('%Y年%m月%d日 %H時%M分')
 slack_token = "xoxb-6810543998997-6798913149431-XVrloL5YiY9s5lNeOo5I6oHZ"
 slack_channel_name = "stock_news" 
 slack_post_url = 'https://slack.com/api/chat.postMessage'
-stock_news_content = "<!channel>\n" + dt_now_text + " の通知です。 \n 新しいマーケットニュースがありましたので、ご確認ください。 \n <https://www.sbisec.co.jp/ETGate/?_ControlID=WPLETmgR001Control&_PageID=WPLETmgR001Mdtl20&_DataStoreID=DSWPLETmgR001Control&_ActionID=DefaultAID&burl=iris_news&cat1=market&cat2=news&dir=tl1-news%7Ctl2-mkt%7Ctl3-jpn%7Ctl4-reuters%7Ctl9-0&file=index.html&getFlg=on | PC版>\n <https://s.sbisec.co.jp/smweb/market/marketNewsList.do? | Mobile版>"
+stock_news_content = "<!channel>\n 新しいマーケットニュースがありましたので、ご確認ください。 \n <https://www.sbisec.co.jp/ETGate/?_ControlID=WPLETmgR001Control&_PageID=WPLETmgR001Mdtl20&_DataStoreID=DSWPLETmgR001Control&_ActionID=DefaultAID&burl=iris_news&cat1=market&cat2=news&dir=tl1-news%7Ctl2-mkt%7Ctl3-jpn%7Ctl4-reuters%7Ctl9-0&file=index.html&getFlg=on | PC版>\n <https://s.sbisec.co.jp/smweb/market/marketNewsList.do? | Mobile版>"
 slack_username = 'Notification bot'
 
 
@@ -172,7 +172,7 @@ def isNoti():
         cursor.execute(delData)
         cnx.commit()
         
-        getNewCount = "SELECT text,count(text) FROM news_url_tbl where del_flg != 1 GROUP BY text HAVING count(text) = 1;"
+        getNewCount = "SELECT text, count(text) FROM news_url_tbl where del_flg != 1 and (text like '%上昇%' or text like '%サプライズ決算%' or text like '%上方修正%' or text like '%増益%' or text like '%増額%' or text like '%急騰%') GROUP BY text HAVING count(text) = 1;"
         cursor.execute(getNewCount)
         if len(cursor.fetchall()) >= 1:
             createStockNewsNoti()
