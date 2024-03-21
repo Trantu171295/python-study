@@ -5,3 +5,15 @@ Host gitlab.com
   PreferredAuthentications publickey
   IdentityFile ~/.ssh/gitlab
 https://stackoverflow.com/questions/65299117/ssh-connect-to-host-gitlab-com-port-22-network-is-unreachable
+
+
+
+
+特定サイトにアクセスできない
+
+https://zapping.beccou.com/2021/08/29/raspberry-pi-chromium-cannot-see-certain-sites-in-browser/
+
+https://zapping.beccou.com/2021/08/15/fix-the-ip-address-on-the-raspberry-pi-os/
+
+
+https://www.hiramine.com/physicalcomputing/raspberrypi3/setup_staticip.html
