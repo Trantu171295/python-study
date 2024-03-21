@@ -1,0 +1,7 @@
+Host gitlab.com
+  Hostname altssh.gitlab.com
+  User git
+  Port 443
+  PreferredAuthentications publickey
+  IdentityFile ~/.ssh/gitlab
+https://stackoverflow.com/questions/65299117/ssh-connect-to-host-gitlab-com-port-22-network-is-unreachable
